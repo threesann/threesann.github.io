@@ -33,6 +33,12 @@ a:hover {
   font-style: normal;
 }
 
+.custom-font-2 {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 img {
   display:inline-block;
   width: 100%;

@@ -3,7 +3,12 @@
 
 <head>
   <link rel="stylesheet" href="style.css"> <!-- pulls our styles from the css file -->
+  <link rel="icon" href="Images/icon.png"> <!-- sets page's icon -->
   <title>website</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -12,7 +17,7 @@
   <h1 style="background-color:beige;text-align:center;">a subsidary of worm.com</h1>
   <p style="text-align:center;">this is the world's greatest website.</p> <!-- paragraph -->
   <a href="https://www.google.com/search?q=awesome" target="_blank">cool sht</a> <!-- link -->
-  <a href="mailto:dixie_normous@outlook.com">email me</a> <!-- email link -->
+  <a href="mailto:dixie_normous@outlook.com?subject=coming out&body=im gay. i hope you can accept me for who i am">email me</a> <!-- email link -->
   <button title="click for" onclick="document.location='https://www.google.com/search?q=prank'">sick button</button>
   <hr> <!--  horizontal line - puts the next element on the next line -->
 
@@ -34,7 +39,7 @@
   <p style="color:blue;font-family:Helvetica;" title="yo dude"><i><ins>try hovering over me</ins></i></p>
   <hr>
 
-
+  <h2 style="">the <span class="dancing-script">fancy</span> section</h2>
   <p>the text here
     will <del>not</del> be displayed
     as formatted in this document</p>
@@ -46,10 +51,24 @@
   <p>
     <img src="Images/query.png" alt="?" style="height:32px">
     DID YOU KOW? I love to drink H<sub>2</sub>O while doing maths equations like 4<sup>2</sup>.</p>
+
+  <p style="text-align:center;background-color:blue;color:white;"><bold>p</bold> is a block-level element, so the colour stretches to the end</p>
+  <div style="text-align:center">
+    <span style="background-color:blue;color:white;">whereas <bold>span</bold> stays where it's told.</span>
+  </div>
+
+  <div style="color:white;background-color:black;padding=2px"> <!-- explaining div -->
+    <p>using div...</p>
+    <h3>everything within the div container can be assigned parameters</h3>
+    <h3 class="dancing-script">wow...</h3>
+  </div>
+
+  <p>div also comes with <div>line breaks</div> before and after</p> 
+
   <hr id="clicknow">
 
 
-  <h1>the guy section
+  <h1 style="padding-bottom:10px">the guy section
   <img src="Images/beta.png" alt="Feature currently in beta"></h1>
   <img src="clicknow stuff/picnows/clicknow.gif" alt="Click now!" usemap="#clicknow" style="width:634px;height:416px">
 
@@ -59,6 +78,50 @@
     <area shape="rect" coords="132,325,182,365" alt="pocket" href="clicknow stuff/pocket.html">
     <area shape="rect" coords="196,223,213,296" alt="buttons" href="clicknow stuff/buttons.html">
   </map>
+  <hr>
+
+
+  
+  <h1 style="padding-bottom:10px;">vitally important statistics</h1> <!-- it's literally just a table -->
+  <table>
+    <tr> <!-- defines a row in a table -->
+      <th>name</th> <!-- defines a header cell in a row -->
+      <th> nu,mber of cookie in jar </th>
+      <th>zodiac sign</th>
+    </tr>
+    <tr>
+      <td>emil</td> <!-- defines a regular cell in a row -->
+      <td>19</td>
+      <td>sebra</td>
+    </tr>
+    <tr>
+      <td>david</td>
+      <td>23000</td>
+      <td>virgo</td>
+    </tr>
+    <tr>
+      <td>harry</td>
+      <td>4200</td>
+      <td>UNKNOWN</td>
+    </tr>
+  </table>
+  <hr>
+
+  
+
+  <h1>quest log</h1> <!-- it's literally just a list -->
+  <dl> <!-- oh, it's a descriptive list? -->
+    <dt>ball</dt>
+    <dd>- like there's no tomorrow</dd>
+    <dt>tweak</dt>
+    <dd>- on that gluten free</dd>
+    <dt>wish david a happy pride month</dt>
+    <dd>- even if it isn't</dd>
+  </dl>
+  <hr>
+
+
+
   
   
   <p style="color:white;background-color:black;text-align:center;">this is the great void<br>continue if you dare</p>
