@@ -1,0 +1,88 @@
+:root {
+  --background: rgb(0, 162, 232);
+  --text-body: #fff;
+  --text-secondary: #ffffffaa;
+
+  --progress-bar-background: #29d45b;
+  --progress-bar-off: #b5e61d;
+  --progress-bar-empty: #212121;
+
+  --default-cue-offset: 10rem;
+}
+
+body {
+  /* background: var(--background); */
+  color: var(--text-body);
+
+  background-image: url(assets/bg_sunset.png);
+  background-size: cover;
+  animation: background-idle 40s linear infinite;
+}
+
+h2 {
+  font-family: "Fixedsys Excelsior 3.01";
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.kevinButton {
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes background-idle {
+  from {
+    background-position: 0px;
+  }
+
+  to {
+    background-position: 1920px;
+  }
+}
+
+@keyframes cue-bob {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.inter-tight {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fixedsys Excelsior 3.01";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Fixedsys Excelsior 3.01"),
+    url("assets/FSEX300.woff") format("woff");
+}
+
+.fixedsys {
+  font-family: "Fixedsys Excelsior 3.01";
+}

@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Kevster Clicker</title>
+    <link rel="icon" type="image/x-icon" href="assets/icon.png" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body class="flex flex-col inter-tight">
+    <!-- clicker grid layout -->
+    <div class="lg:grid lg:grid-cols-3 w-full min-h-[100vh]">
+      <!-- clicker content -->
+      <div class="lg:col-span-2 flex flex-col h-full min-h-[48rem]">
+        <!-- clicker section -->
+        <div
+          class="h-full flex flex-col items-center justify-center gap-24 p-6"
+        >
+          <!-- clicker button -->
+          <button
+            class="relative bg-black rounded-full drop-shadow-lg hover:scale-105 active:scale-90 transition-all duration-200"
+            id="kevin-button"
+          >
+            <div id="kev-image" class="h-52 w-52 rounded-full kevinButton" style="background-image: url(assets/kevster_heaven.png);" />
+            <div id="cue-origin" class="-translate-x-8 translate-y-20"></div>
+          </button>
+
+          <!-- currency display -->
+          <div class="flex items-center flex-col">
+            <div class="flex justify-center items-start gap-1.5">
+              <p id="kevin-count" class="text-8xl drop-shadow-lg leading-[85px]">0</p>
+              <p class="text-5xl" id="kev-currency">KevBucks</p>
+              <img src="assets/kevbuck.gif" class="h-8 w-8 mt-3">
+            </div>
+            <p class="text-xl" id="kev-currency"><span id="kps">0</span> KevBucks/s</p>
+          </div>
+        </div>
+
+        <!-- level section -->
+        <div class="p-6 flex flex-col">
+          <!-- level count -->
+          <h2 class="text-7xl">Level <span id="level-count">0</span></h2>
+
+          <!-- xp bar -->
+          <div
+            class="w-full border-4 border-black h-10 bg-[--progress-bar-empty] relative"
+          >
+            <!-- xp bar progress -->
+            <div
+              id="xp_progress"
+              class="bg-[--progress-bar-background] transition-all h-full border-t-4 border-[--progress-bar-off] w-[calc(100%*var(--progress-percentage))]"
+            ></div>
+
+            <!-- xp bar amount text -->
+            <div
+              class="fixedsys absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              XP: <span id="xp">0</span>/<span id="xp_max">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- upgrades section -->
+      <div class="lg:col-span-1 grid gap-3 p-6 min-h-[32rem] max-h-[90vh] overflow-y-scroll scrollbar-hidden">
+        <!-- upgrade title -->
+        <h2 class="uppercase text-8xl">Upgrades</h2>
+
+        <!-- upgrade items -->
+        <div id="upgrade-origin" class="flex flex-col gap-3"></div>
+    </div>
+
+    <!-- footer -->
+    <div
+      class="flex justify-center p-3 col-span-3 gap-1.5 text-sm text-[--text-secondary] items-center">
+      <button onclick="displayCredits()">Made by Snooker Inc</button>
+      <p>|</p>
+      <button id="reset-button" class="text-sm">Reset Progress</button>
+      <p>|</p>
+      <button id="mute-button">Mute</button>
+    </div>
+
+      
+    <!-- reusable component templates -->
+    <div id="templates" class="hidden">
+      <!-- poker cue component -->
+      <div
+        id="template-cue"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <img
+          id="cue-image"
+          src="assets/cue.png"
+          class="cue-image w-16 h-12 -rotate-90 translate-y-32 translate-x-1/2"
+        />
+      </div>
+
+      <!-- upgrade item component -->
+      <button id="template-upgrade" class="relative h-fit group w-full bg-black/25 justify-between disabled:hover:bg-black/25 hover:bg-black/50 transition-colors flex gap-3 fixedsys p-3">
+        <div class="text-left group-disabled:invisible">
+          <h2 id="upgrade-name" class="uppercase text-3xl">name</h2>
+          <p id="upgrade-description" class="leading-tight">description</p>
+        </div>
+        <div class="flex flex-col justify-between items-end text-right h-full group-disabled:invisible">
+          <p class="whitespace-nowrap text-2xl">Level <span id="upgrade-level">0</span></p>
+          <div class="flex items-center gap-3">
+            <p id="upgrade-price" class="text-2xl">price</p>
+            <img src="assets/kevbuck.gif" class="h-8 w-8" />
+          </div>
+        </div>
+        <div class="hidden group-disabled:flex absolute inset-0 bg-black/25 items-center justify-center">
+          <img src="assets/locked.png">
+          <p class="pl-5 text-xl">Reach Level 10 in previous upgrade!</p>
+        </div>
+      </button>
+    </div>
+
+    <!-- background audio -->
+    <audio id="audio" autoplay loop>
+      <source src="audio/backing.mp3" type="audio/mp3" />
+    </audio>
+  </body>
+</html>
