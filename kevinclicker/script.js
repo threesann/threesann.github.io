@@ -66,6 +66,7 @@ window.addEventListener("keypress", (event) => {
 let kevBucks = 0;
 let kps = 0;
 let pkps = 0;
+let kevThicc= 2;
 let previous_pkps = 0;
 let cueCount = 0;
 let timeStart = Date.now();
@@ -91,15 +92,17 @@ function updateUI() {
   muteButton.innerText = audio.muted ? "Unmute" : "Mute";
 
   if (cookieMode) {
-    kevinButtonImage.style = "background-image: url(assets/cookie.png);";
+    kevinButtonImage.style.backgroundImage = "url(assets/cookie.png)";
     kevCurrencyText.textContent = "CookieBucks";
     kevPerSecCurrencyText.textContent = "CookieBucks/s";
   } else {
-    kevinButtonImage.style =
-      "background-image: url(assets/kevster_heaven.png);";
+    kevinButtonImage.style.backgroundImage =
+      "url(assets/kevster_heaven.png)";
     kevCurrencyText.textContent = "KevBucks";
     kevPerSecCurrencyText.textContent = "KevBucks/s";
   }
+
+  // kevinButtonImage.style.scale = `scale(${kevThicc}, 0)`
 
   while (upgradeOrigin.firstChild) {
     upgradeOrigin.firstChild.remove();
@@ -125,6 +128,9 @@ function updateUI() {
     upgradeElement.querySelector("#upgrade-description").innerText =
       upgrade.description;
     upgradeElement.querySelector("#upgrade-price").innerText = upgrade.price(
+      upgrade.level,
+    );
+    upgradeElement.querySelector("#kps-level").innerText = upgrade.kps(
       upgrade.level,
     );
     upgradeElement.disabled = !upgrade.unlocked;
