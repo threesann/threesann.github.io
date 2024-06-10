@@ -6,6 +6,7 @@ const muteButton = document.getElementById("mute-button");
 const kevinButtonImage = document.getElementById("kev-image");
 const kevCurrencyText = document.getElementById("kev-currency");
 const kevPerSecText = document.getElementById("kps");
+const kevPerSecCurrencyText = document.getElementById("kps-currency");
 
 const cueOrigin = document.getElementById("cue-origin");
 const cueTemplate = document.getElementById("template-cue");
@@ -26,7 +27,7 @@ const upgrades_content = [
     id: "poolcue",
     name: "poolcue",
     description: "Prods Kevster to make passive KevBucks!",
-    price: (level) => 50 + (level * 10),
+    price: (level) => 50 + (level * 5),
     kps: (level) => level,
     effects: (level) => {
       showCues(level);
@@ -36,7 +37,7 @@ const upgrades_content = [
     id: "localbank",
     name: "local bank",
     description: "Small local Bank to produce some additional Bucks!",
-    price: (level) => 250 + (level * 50),
+    price: (level) => 250 + (level * 10),
     kps: (level) => level * 5,
   },
   {
@@ -92,10 +93,12 @@ function updateUI() {
   if (cookieMode) {
     kevinButtonImage.style = "background-image: url(assets/cookie.png);";
     kevCurrencyText.textContent = "CookieBucks";
+    kevPerSecCurrencyText.textContent = "CookieBucks/s";
   } else {
     kevinButtonImage.style =
       "background-image: url(assets/kevster_heaven.png);";
     kevCurrencyText.textContent = "KevBucks";
+    kevPerSecCurrencyText.textContent = "KevBucks/s";
   }
 
   while (upgradeOrigin.firstChild) {
