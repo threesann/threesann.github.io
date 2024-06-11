@@ -14,7 +14,7 @@ body {
   /* background: var(--background); */
   color: var(--text-body);
 
-  background-image: url(assets/bg_sunset.png);
+  /* background-image: url(assets/bg_sunset.png); */
   background-size: cover;
   animation: background-idle 40s linear infinite;
 }

@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>\
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
@@ -107,11 +108,14 @@
       </div>
 
       <!-- upgrade item component -->
-      <button id="template-upgrade" class="relative h-fit group w-full bg-black/25 justify-between disabled:hover:bg-black/25 hover:bg-black/50 transition-colors flex gap-3 fixedsys p-3">
-        <div class="text-left group-disabled:invisible">
-          <h2 id="upgrade-name" class="uppercase text-3xl">name</h2>
-          <p id="upgrade-description" class="leading-tight">description</p>
-        </div>
+      <button id="template-upgrade" class="relative h-fit group w-full bg-black/25 justify-between disabled:hover:bg-black/25 hover:bg-black/50 transition-colors flex items-center gap-3 fixedsys p-3">
+       <div class="flex items-center gap-3">
+         <img id="upgrade-image" src="" class="h-14 w-14 group-disabled:hidden" />
+         <div class="text-left group-disabled:invisible">
+           <h2 id="upgrade-name" class="uppercase text-3xl">name</h2>
+           <p id="upgrade-description" class="leading-tight">description</p>
+         </div>
+       </div>
         <div class="flex flex-col justify-between items-end text-right h-full group-disabled:invisible">
           <p class="whitespace-nowrap text-2xl">Level <span id="upgrade-level">0</span> (+<span id="kps-level">0</span> K/s)</p>
           <div class="flex items-center gap-3">
@@ -124,6 +128,10 @@
           <p class="pl-5 text-xl">Reach Level 10 in previous upgrade!</p>
         </div>
       </button>
+
+      <img src="assets/bg_morning.png" />
+      <img src="assets/bg_nighttime.png" />
+      <img src="assets/bg_sunset.png" />
     </div>
 
     <!-- background audio -->

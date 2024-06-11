@@ -21,12 +21,18 @@ const progressBarElement = document.getElementById("xp_progress");
 
 const audio = document.getElementById("audio");
 
+const jsConfetti = new JSConfetti()
+
+const background_images = ["bg_morning.png", "bg_sunset.png", "bg_nighttime.png"]
+let background_index = 0
+
 // upgrades
 const upgrades_content = [
   {
     id: "poolcue",
     name: "poolcue",
     description: "Prods Kevster to make passive KevBucks!",
+    image: "assets/icon_poolcue.png",
     price: (level) => 50 + (level * 5),
     kps: (level) => level,
     effects: (level) => {
@@ -37,6 +43,7 @@ const upgrades_content = [
     id: "localbank",
     name: "local bank",
     description: "Small local Bank to produce some additional Bucks!",
+    image: "assets/icon_localbank.png",
     price: (level) => 250 + (level * 10),
     kps: (level) => level * 5,
   },
@@ -45,6 +52,7 @@ const upgrades_content = [
     name: "5 course meal",
     description:
       "Keeping Kevster fed is a great way to keep him producing, huh?",
+    image: "assets/icon_fivecourse.png",
     price: (level) => 500 + (level * 25),
     kps: (level) => level * 10,
   },
@@ -70,20 +78,30 @@ let kevThicc= 2;
 let previous_pkps = 0;
 let cueCount = 0;
 let timeStart = Date.now();
-let player_level = 0; //add function to increase xp by x amount when buying an upgrade based on level of purchases e.g. level 30 cue = (30 * 2), (30=level value, 2=cue value); level 4 factory =
-// (4 * 10), (4 = level value, 10 = factory value)
 let xp = 0;
-let max_xp = 50;
-let progress_percentage = xp / max_xp;
+
+// level and experience
+let level_constant = 0.1;
+function getLevelFromXP(xp) {
+  return level_constant * Math.sqrt(xp)
+}
+function getXPFromLevel(level) {
+  return Math.round((level / level_constant) ** 2)
+}
 
 // Update all ui elements
 function updateUI() {
-  progress_percentage = xp / max_xp;
+  level = Math.floor(getLevelFromXP(xp));
+  current_level_xp = getXPFromLevel(level)
+  next_level_xp = getXPFromLevel(level + 1);
+  progress_percentage = (xp - current_level_xp) / (next_level_xp - current_level_xp);
 
+  document.querySelector("body").style.backgroundImage = `url(assets/${background_images[Math.floor(level / 5) % 3]})`;
+  
   kevBucksElement.innerText = kevBucks;
-  levelElement.innerText = player_level;
-  xpElement.innerText = xp;
-  xpMaxElement.innerText = max_xp;
+  levelElement.innerText = level;
+  xpElement.innerText = xp - current_level_xp;
+  xpMaxElement.innerText = next_level_xp - current_level_xp;
   progressBarElement.style.setProperty(
     "--progress-percentage",
     progress_percentage,
@@ -125,6 +143,7 @@ function updateUI() {
     upgradeElement.id = "upgrade";
     upgradeElement.querySelector("#upgrade-name").innerText = upgrade.name;
     upgradeElement.querySelector("#upgrade-level").innerText = upgrade.level;
+    upgradeElement.querySelector("#upgrade-image").src = upgrade.image;
     upgradeElement.querySelector("#upgrade-description").innerText =
       upgrade.description;
     upgradeElement.querySelector("#upgrade-price").innerText = upgrade.price(
@@ -184,14 +203,13 @@ kevinButton.addEventListener("click", () => {
 
 // level and experience
 function gainXP(amount) {
-  xp += amount;
+  xp += Math.round(amount);
 
-  if (xp >= max_xp) {
-    // level up
-      player_level++;
-    xp = xp - max_xp;
-    max_xp = max_xp + player_level * 120;
+  if (Math.floor(getLevelFromXP(xp)) > Math.floor(getLevelFromXP(xp - Math.round(amount)))) {
+    jsConfetti.addConfetti()
   }
+  
+  updateUI()
 }
 
 // init upgrades
@@ -204,7 +222,7 @@ function buyUpgrade(id) {
 
   kevBucks -= price;
   upgrade.level += 1;
-  gainXP(upgrade.level * 2); // placeholder
+  gainXP(price * 0.25);
 
   if (typeof upgrade.effects === "function") upgrade.effects(upgrade.level);
 
@@ -247,7 +265,6 @@ resetButton.addEventListener("click", () => {
   let text = "Are you sure you want to reset your progress?";
   if (confirm(text) == true) {
     kevBucks = 0;
-    player_level = 0;
     xp = 0;
     max_xp = 50;
     upgrades = [];
@@ -270,9 +287,7 @@ function save() {
     "kevAutoSave",
     JSON.stringify({
       kevBucks,
-      player_level,
       xp,
-      max_xp,
       muted: audio.muted,
       upgrades: Object.fromEntries(
         upgrades.map((upgrade) => [upgrade.id, upgrade.level]),
@@ -288,9 +303,7 @@ window.addEventListener("load", () => {
   let autoSaveData = JSON.parse(autoSave);
 
   kevBucks = autoSaveData.kevBucks;
-  level = autoSaveData.level;
   xp = autoSaveData.xp;
-  max_xp = autoSaveData.max_xp;
   audio.muted = autoSaveData.muted;
 
   updateUI();
@@ -299,7 +312,15 @@ window.addEventListener("load", () => {
 // credits
 function displayCredits() {
   window.alert(
-    "Programming: David Fiddes\nAssets & Music: Rishabh Sandhu\nConcepts/Additional Help: Leon Carpin\n\nThanks for playing!",
+    [
+      "Programming: David Fiddes", 
+      "Assets & Music: Rishabh Sandhu", 
+      "Concepts/Additional Help: Leon Carpin",
+      "",
+      "Playtesters: Daniels, Josh, Harry",
+      "Big Shoutouts: God Emperor Kevster II",
+      "Thanks for playing!",
+    ].join("\n"),
   );
 }
 
