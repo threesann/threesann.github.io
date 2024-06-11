@@ -81,7 +81,7 @@ let timeStart = Date.now();
 let xp = 0;
 
 // level and experience
-let level_constant = 0.1;
+let level_constant = 0.07;
 function getLevelFromXP(xp) {
   return level_constant * Math.sqrt(xp)
 }
