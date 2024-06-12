@@ -56,6 +56,15 @@ const upgrades_content = [
     price: (level) => 500 + (level * 25),
     kps: (level) => level * 10,
   },
+  {
+    id: "nationalbank",
+    name: "national bank",
+    description:
+      "Produces Kevbucks at a national scale!",
+    image: "assets/icon_placeholder.png",
+    price: (level) => 1000 + (level * 50),
+    kps: (level) => level * 50,
+  },
 ];
 
 let upgrades = [];
