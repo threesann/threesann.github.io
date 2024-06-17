@@ -6,19 +6,28 @@
   <link rel="icon" href="Images/icon.png"> <!-- sets page's icon -->
   <title>website</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <a href="/">back to main</a>
+  <a href="/" id="top">back to main</a>
   <h1 style="font-size:100px;background-color:beige;text-align:center;">website</h1> <!-- header -->
   <h1 style="background-color:beige;text-align:center;">a subsidary of worm.com</h1>
   <p style="text-align:center;">this is the world's greatest website.</p> <!-- paragraph -->
   <a href="https://www.google.com/search?q=awesome" target="_blank">cool sht</a> <!-- link -->
   <a href="mailto:dixie_normous@outlook.com?subject=coming out&body=im gay. i hope you can accept me for who i am">email me</a> <!-- email link -->
-  <button title="click for" onclick="document.location='https://www.google.com/search?q=prank'">sick button</button>
+  <button title="click for" onclick="vid()">sick button</button>
+  <script>
+    function vid() {
+      document.body.innerHTML = "<div class='section'><video controls autoplay><source src='Images/Morio-cho Radio.mp4' type='video/mp4'>Your browser does not support the video tag.</video><br><a href='website.html'>Leave Morio-cho.</a></div>";
+    }
+  </script>
+  <button title="cl " onclick="document.location='https://www.google.com/search?q=prank'">sick button 2.1</button>
+
   <hr> <!--  horizontal line - puts the next element on the next line -->
 
 
@@ -120,8 +129,57 @@
   </dl>
   <hr>
 
+  <!-- FORMNS AND SHIT -->
+  <h1>THE DO IT YOURSELF SECTION</h1>
+  <h3 style="margin:0px;"><u>you lazy fuck</u><br><br></h3>
+
+  <p>wanna know your cool username? enter the following information<br>to generate one!<br><br></p>
+  <p></p>
+  
+  <form>
+    <fieldset>
+    <legend>Details:</legend>
+    <label for="fname">Card Holder:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="fcredit">Credit Card Number:</label><br>
+    <input type="text" id="fcredit" name="fcredit"><br>
+    <label for="fcvv">CVV:</label><br>
+    <input type="text" id="fcvv" name="fcvv"><br>
+    <label for="fexp">Expiration Date:</label><br>
+    <input type="text" id="fexp" name="fexp"><br><br>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob"><br><br>
+  </form>
+  </fieldset>
+
+  <p>What wicked number do you want at the end?</p>
+
+  <form>
+    <input type="radio" id="Fifty" name="Fifty" value="Fifty">
+    <label for="Fifty">$50</label>
+    <input type="radio" id="Hunnid" name="Hunnid" value="Hunnid">
+    <label for="Hunnid">$100</label>
+    <input type="radio" id="AStack" name="AStack" value="AStack">
+    <label for="AStack">$1000</label><br><br>
+
+    <input type="checkbox" id="tandc" name="tandc" value="tandc">
+    <label for="tandc">I agree to the <a href="http://onemillionlols.com/" target="_blank">Terms & Conditions.</a></label><br><br>
+
+    <input type="submit" value="Submit">
+    <img src="Images/smile.png" title=":)" style="length:20px;width:20px;"><br>
+  </form>
+  <hr>
 
 
+
+  <h1>the feedback section</h1>
+  <p><u>please provide any feedback you may have to the developers!</u></p>
+  <textarea name="message" rows="4" cols="50"></textarea><br>
+  <p>and pick a colour</p>
+  <input type="color"><br>
+  <button type="button" onclick="window.alert('ok')">Submit</button>
+
+  
   
   
   <p style="color:white;background-color:black;text-align:center;">this is the great void<br>continue if you dare</p>
@@ -573,7 +631,9 @@
   <hr>
   <hr>
   <hr>
-  <p id="end" style="color:red;background-color:black;text-align:center;padding:20px">yo</p>
+  <div style="color:red;background-color:black;text-align:center;padding:20px"
+  <p id="end">yo</p>
+  <a href="#top">go back</a>
 
 </body>
 
