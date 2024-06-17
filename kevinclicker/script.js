@@ -2,6 +2,7 @@ const kevinButton = document.getElementById("kevin-button");
 const kevBucksElement = document.getElementById("kevin-count");
 const resetButton = document.getElementById("reset-button");
 const muteButton = document.getElementById("mute-button");
+const importButton = document.getElementById("import-button");
 
 const kevinButtonImage = document.getElementById("kev-image");
 const kevCurrencyText = document.getElementById("kev-currency");
@@ -33,8 +34,10 @@ const upgrades_content = [
     name: "poolcue",
     description: "Prods Kevster to make passive KevBucks!",
     image: "assets/icon_poolcue.png",
-    price: (level) => 50 + (level * 5),
-    kps: (level) => level,
+    // demo test of pricing curve:
+    // 50 (base value) + 8 * level ^ 1.35
+    price: (level) => Math.round(50 + (8 * level ** 1.35)),
+    kps: (level) => level * 2,
     effects: (level) => {
       showCues(level);
     },
@@ -44,8 +47,8 @@ const upgrades_content = [
     name: "local bank",
     description: "Small local Bank to produce some additional Bucks!",
     image: "assets/icon_localbank.png",
-    price: (level) => 250 + (level * 10),
-    kps: (level) => level * 5,
+    price: (level) => Math.round(250 + (9 * level ** 1.35)),
+    kps: (level) => level * 10,
   },
   {
     id: "5coursemeal",
@@ -53,18 +56,22 @@ const upgrades_content = [
     description:
       "Keeping Kevster fed is a great way to keep him producing, huh?",
     image: "assets/icon_fivecourse.png",
-    price: (level) => 500 + (level * 25),
-    kps: (level) => level * 10,
+    price: (level) => Math.round(500 + (10 * level ** 1.35)),
+    kps: (level) => level * 20,
   },
   {
-    id: "nationalbank",
-    name: "national bank",
+    id: "fancycue",
+    name: "fancycue",
     description:
-      "Produces Kevbucks at a national scale!",
+      "Prods Kevster with style to produce even more KevBucks!",
     image: "assets/icon_placeholder.png",
-    price: (level) => 1000 + (level * 50),
-    kps: (level) => level * 50,
+    price: (level) => Math.round(1000 + (11 * level ** 1.35)),
+    kps: (level) => level * 30,
+    effects: (level) => {
+      showCues(level);
+    }
   },
+
 ];
 
 let upgrades = [];
@@ -83,7 +90,7 @@ window.addEventListener("keypress", (event) => {
 let kevBucks = 0;
 let kps = 0;
 let pkps = 0;
-let kevThicc= 2;
+let kevThicc = 2;
 let previous_pkps = 0;
 let cueCount = 0;
 let timeStart = Date.now();
@@ -106,7 +113,7 @@ function updateUI() {
   progress_percentage = (xp - current_level_xp) / (next_level_xp - current_level_xp);
 
   document.querySelector("body").style.backgroundImage = `url(assets/${background_images[Math.floor(level / 5) % 3]})`;
-  
+
   kevBucksElement.innerText = kevBucks;
   levelElement.innerText = level;
   xpElement.innerText = xp - current_level_xp;
@@ -120,8 +127,8 @@ function updateUI() {
 
   if (cookieMode) {
     kevinButtonImage.style.backgroundImage = "url(assets/cookie.png)";
-    kevCurrencyText.textContent = "CookieBucks";
-    kevPerSecCurrencyText.textContent = "CookieBucks/s";
+    kevCurrencyText.textContent = "KookieBucks";
+    kevPerSecCurrencyText.textContent = "KookieBucks/s";
   } else {
     kevinButtonImage.style.backgroundImage =
       "url(assets/kevster_heaven.png)";
@@ -136,7 +143,7 @@ function updateUI() {
   }
   kps = 0;
   upgrades.forEach((upgrade, i, a) => {
-    let previous_upgrade = a[i-1]
+    let previous_upgrade = a[i - 1]
     if (!previous_upgrade) {
       upgrade.unlocked = true;
       return;
@@ -146,7 +153,7 @@ function updateUI() {
       upgrade.unlocked = true
     }
   })
-  
+
   upgrades.forEach((upgrade) => {
     let upgradeElement = upgradeTemplate.cloneNode(true);
     upgradeElement.id = "upgrade";
@@ -217,7 +224,7 @@ function gainXP(amount) {
   if (Math.floor(getLevelFromXP(xp)) > Math.floor(getLevelFromXP(xp - Math.round(amount)))) {
     jsConfetti.addConfetti()
   }
-  
+
   updateUI()
 }
 
@@ -256,7 +263,7 @@ function loadUpgrades() {
   });
 
   upgrades.forEach((upgrade, i, a) => {
-    let previous_upgrade = a[i-1]
+    let previous_upgrade = a[i - 1]
     if (!previous_upgrade) {
       upgrade.unlocked = true;
       return;
@@ -275,9 +282,9 @@ resetButton.addEventListener("click", () => {
   if (confirm(text) == true) {
     kevBucks = 0;
     xp = 0;
-    max_xp = 50;
     upgrades = [];
 
+    console.log("reset save")
     save();
     updateUI();
     window.location.reload();
@@ -285,32 +292,57 @@ resetButton.addEventListener("click", () => {
   }
 });
 
-function saveandreload() {
-  save()
+function saveandreload(new_content) {
+  console.log("save reload")
+  save(new_content)
   window.location.reload()
 }
 
+// saves
+function generateSave() {
+  let save = btoa(JSON.stringify({
+    kevBucks,
+    xp,
+    muted: audio.muted,
+    upgrades: Object.fromEntries(
+      upgrades.map((upgrade) => [upgrade.id, upgrade.level]),
+    ),
+  }))
+  let result = prompt("Here is your save code, edit it or copy it.", save)
+  // if (result === save) return;
+  let save_string = atob(result)
+  saveandreload(save_string)
+  
+}
+importButton.addEventListener("click", generateSave)
+
 // Auto save script
-function save() {
+function save(new_content) {
+  let content = JSON.stringify({
+    kevBucks,
+    xp,
+    muted: audio.muted,
+    upgrades: Object.fromEntries(
+      upgrades.map((upgrade) => [upgrade.id, upgrade.level]),
+    ),
+  })
+  console.log(new_content)
   localStorage.setItem(
     "kevAutoSave",
-    JSON.stringify({
-      kevBucks,
-      xp,
-      muted: audio.muted,
-      upgrades: Object.fromEntries(
-        upgrades.map((upgrade) => [upgrade.id, upgrade.level]),
-      ),
-    }),
+    new_content ? new_content :content
   );
 }
-setInterval(save, 2000);
+setInterval(() => {
+  console.log("auto save")
+  save()
+}, 2000);
 
 window.addEventListener("load", () => {
   let autoSave = localStorage.getItem("kevAutoSave");
   if (!autoSave) return;
   let autoSaveData = JSON.parse(autoSave);
-
+  console.log("auto", autoSaveData)
+  
   kevBucks = autoSaveData.kevBucks;
   xp = autoSaveData.xp;
   audio.muted = autoSaveData.muted;
@@ -318,12 +350,13 @@ window.addEventListener("load", () => {
   updateUI();
 });
 
+
 // credits
 function displayCredits() {
   window.alert(
     [
-      "Programming: David Fiddes", 
-      "Assets & Music: Rishabh Sandhu", 
+      "Programming: David Fiddes",
+      "Assets & Music: Rishabh Sandhu",
       "Concepts/Additional Help: Leon Carpin",
       "",
       "Playtesters: Daniels, Josh, Harry",
