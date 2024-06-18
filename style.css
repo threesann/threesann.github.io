@@ -3,6 +3,51 @@ html {
   width: 100%;
 }
 
+a:visited {
+  color: #0000EE;
+}
+
+sub {
+  vertical-align: normal;
+  font-size: smaller;
+  color: gray;
+}
+
+img {
+  border:2px solid black;
+}
+
+
+
+
+div.imgzone {
+  text-align: right;
+}
+
 .content {
   min-height: calc(100vh - 70px);
+  margin: auto;
+  text-align: center;
+}
+
+.box {
+  margin: auto;
+  text-align: left;
+  width: 60%;
+  padding: 1rem;
+  border: double 7px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.header {
+  width:100%;
+  text-align:center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  margin-bottom:1rem;
+  background-color: white;
 }
