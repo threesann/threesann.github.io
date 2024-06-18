@@ -3,8 +3,12 @@ html {
   width: 100%;
 }
 
+body {
+  margin: 0;
+}
+
 a:visited {
-  color: #0000EE;
+  color: #0000EE; /* no purple links allowed */
 }
 
 sub {
@@ -21,7 +25,7 @@ img {
 
 
 div.imgzone {
-  text-align: right;
+  text-align: right; /* this is like the tf2 pineapple img */
 }
 
 .content {
@@ -30,15 +34,15 @@ div.imgzone {
   text-align: center;
 }
 
-.box {
+.box { /* styling class for box container */
   margin: auto;
   text-align: left;
-  width: 60%;
+  width: 80%; /* note: adjusts width within "content" div */
   padding: 1rem;
   border: double 7px;
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: space-between; /* content in seperate divs within the box are seperated */
   margin-bottom: 1rem;
 }
 
@@ -50,4 +54,17 @@ div.imgzone {
   top: 0;
   margin-bottom:1rem;
   background-color: white;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.border {
+  width: 20%; /* change the width of the sid border */
+  height: auto;
+  background-color: #dbdbdb
+  /* background-image: url("kevinclicker/assets/bg_morning.png") */
 }
