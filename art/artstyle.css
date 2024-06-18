@@ -92,3 +92,12 @@ img {
   transform: translate(-50%, -50%);
   text-align: right;
 }
+
+
+.header {
+  width:100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: black;
+}
