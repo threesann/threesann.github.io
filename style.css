@@ -11,6 +11,11 @@ a:visited {
   color: #0000EE; /* no purple links allowed */
 }
 
+a:hover {
+  background-color: #0000EE;
+  color: white;
+}
+
 sub {
   vertical-align: normal;
   font-size: smaller;
