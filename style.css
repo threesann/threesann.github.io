@@ -68,8 +68,8 @@ div.imgzone {
 }
 
 .border {
-  width: 20%; /* change the width of the sid border */
+  width: 30%; /* change the width of the sid border */
   height: auto;
-  background-color: #dbdbdb
+  background-image: url(mainpage_assets/bg_morning.png)
   /* background-image: url("kevinclicker/assets/bg_morning.png") */
 }
