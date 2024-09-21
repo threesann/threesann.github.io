@@ -57,9 +57,11 @@ div.imgzone {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  margin-bottom:1rem;
+  padding-bottom:10px;
+  border-bottom: 2px solid #ebebeb;
   background-color: white;
 }
+
 
 .flex {
   display: flex;
