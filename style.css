@@ -16,6 +16,10 @@ a:hover {
   color: white;
 }
 
+a.noblue:hover {
+  background-color: white;
+}
+
 sub {
   vertical-align: normal;
   font-size: smaller;
@@ -61,6 +65,11 @@ div.imgzone {
   border-bottom: 2px solid #ebebeb;
   background-color: white;
 }
+
+.adbox {
+  margin-bottom: 1rem;
+}
+
 
 
 .flex {
