@@ -82,3 +82,38 @@ div.imgzone {
 .adbox {
   margin-bottom: 1rem;
 }
+
+.link {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-family:'Times New Roman', Times, serif;
+  text-decoration: underline;
+  color: #0000EE;
+}
+
+.link:hover {
+  background-color:#0000EE;
+  color: white;
+}
+
+/* dark mode zone */
+
+body.dark .content { 
+  background-color: #27253b;
+  color:white;
+}
+
+body.dark .header {
+  background-color: #27253b;
+}
+
+body.dark a {
+  color: #33e7ff;
+}
+
+body.dark {
+  background-image: url(mainpage_assets/bg_nighttime.png);
+  background-size: cover;
+}
