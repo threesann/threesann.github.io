@@ -5,6 +5,18 @@
 
 body {
   margin: 0;
+  background-image: url(mainpage_assets/bg_morning.png);
+  animation: background-move 40s linear infinite;
+}
+
+@keyframes background-move {
+  from {
+    background-position: 0px;
+  }
+
+  to {
+    background-position: 1920px;
+  }
 }
 
 a:visited {
@@ -26,11 +38,6 @@ sub {
   color: gray;
 }
 
-img {
-  border:2px solid black;
-}
-
-
 
 
 div.imgzone {
@@ -38,9 +45,11 @@ div.imgzone {
 }
 
 .content {
-  min-height: calc(100vh - 70px);
+  height: auto;
   margin: auto;
   text-align: center;
+  width: 55%;
+  background-color: white;
 }
 
 .box { /* styling class for box container */
@@ -55,13 +64,17 @@ div.imgzone {
   margin-bottom: 1rem;
 }
 
+.imgzone > img {
+  border:2px solid black;
+}
+
 .header {
   width:100%;
   text-align:center;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding-bottom:10px;
+  padding:10px 0px 10px 0px;
   border-bottom: 2px solid #ebebeb;
   background-color: white;
 }
@@ -72,15 +85,15 @@ div.imgzone {
 
 
 
-.flex {
+/* .flex {
   display: flex;
   justify-content: space-between;
   height: 100%;
-}
+} */
 
-.border {
+/* .border {
   width: 30%; /* change the width of the sid border */
   height: auto;
   background-image: url(mainpage_assets/bg_morning.png)
   /* background-image: url("kevinclicker/assets/bg_morning.png") */
-}
+} */
