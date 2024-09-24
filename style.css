@@ -100,16 +100,13 @@ div.imgzone {
 
 /* dark mode zone */
 
-body.dark .content { 
+body.dark .content, body.dark .header { 
   background-color: #27253b;
   color:white;
+  border-color: #949494;
 }
 
-body.dark .header {
-  background-color: #27253b;
-}
-
-body.dark a {
+body.dark a, body.dark .link {
   color: #33e7ff;
 }
 
