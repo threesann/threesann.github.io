@@ -1,0 +1,65 @@
+html {
+    background-color: black; /* background */
+    height: auto;
+}
+
+body {
+    margin: auto;
+    height: 100vh;
+    text-align: center;
+    color: white;
+}
+
+span {
+    font-size: xx-large;
+}
+
+.padlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: auto;
+    width: 10%;
+}
+
+.numdisplay {
+    width: 100%;
+    height: 2rem;
+    text-align: left;
+    margin-bottom: 1rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+.field {
+    width: 80%;
+    height: 100%;
+    border: 2px solid white;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.buttonstyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+    margin: 5px;
+
+    background: none;
+    border: 2px solid white;
+    color:white;
+    
+}
+
+div.keypad > button:hover {
+    cursor: pointer;
+}

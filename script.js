@@ -7,8 +7,9 @@ function charAdd(index) {
 document.title = " "
 for (let i = 0; i < title.length; i++) {
     setTimeout(() => charAdd(i), 1000*i)
-    console.log(title.charAt(i)) // debug
+
 }
+
 
 function themeToggle() {
     document.querySelector("body").classList.toggle("dark")
@@ -16,3 +17,4 @@ function themeToggle() {
     document.getElementById("themetoggle").innerText = txt ==  "DARK MODE" ? "LIGHT MODE" : "DARK MODE" // toggle the text
     console.log("Theme switched")
 }
+

@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>learning js</title>
+    <link rel="stylesheet"  href="jsstyle.css">
+    <script src="jsscript.js" defer></script>
+</head>
+
+<body>
+    <h1 id="header">This is a header.</h1>
+    <button type="button" onClick="document.getElementById('header').innerHTML = 'Wow! You really changed my perspective on things.'">Press me to change the header text.</button>
+    <p style="font-weight: bolder;">You don't need to put the js code in the button element either.</p>
+    <button id="demo" onClick="changeText()">CHANGE MY TEXT!</button>
+    <hr>
+    <p><button onclick="smaller()">-</button> RESIZE <button onclick="bigger()">+</button></p>
+    <img id="photo" src="/kevinclicker/assets/kevster.png"><br>
+    <button onclick="showImg()">SHOW</button> <button onclick="hideImg()">HIDE</button>
+    <hr>
+    <p id="field">Type below to add something to the site!</p>
+    <input type="text" id="display"> <button onclick="submit()">></button>
+    <hr>
+    <button onclick="colorAlert()" style="background-color:red;  color:black; height:2rem;">CLICK ME FOR AN ALERT!</button>
+</body>
+</html>
