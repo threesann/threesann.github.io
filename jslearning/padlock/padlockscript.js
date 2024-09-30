@@ -1,5 +1,5 @@
 field = document.getElementById("field")
-random = Math.round(Math.random() * 999999 + 111111);
+random = Math.round(Math.random() * 899999 + 100000);
  
 function buttonPress(number) {
     if (field.innerHTML.length != 6) {
