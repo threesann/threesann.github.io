@@ -32,6 +32,10 @@ a.noblue:hover {
   background-color: white;
 }
 
+body.dark a.noblue:hover {
+  background-color: #27253b;
+}
+
 sub {
   vertical-align: normal;
   font-size: smaller;
@@ -52,6 +56,18 @@ div.imgzone {
   background-color: white;
 }
 
+/* mobile adjustments */
+@media screen and (max-width: 850px) {
+  .content {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    margin: 0;
+    background-color: rgb(255,255,255,0.8);
+  }
+  body.dark .content {
+    background-color: rgb(39, 37, 59,0.7)!important /* so janky */
+  }
+}
+
 .box { /* styling class for box container */
   margin: auto;
   text-align: left;
@@ -62,6 +78,10 @@ div.imgzone {
   gap: 1rem;
   justify-content: space-between; /* content in seperate divs within the box are seperated */
   margin-bottom: 1rem;
+  object-fit: contain;
+}
+.box img {
+  width: 100%
 }
 
 .imgzone > img {
@@ -80,7 +100,12 @@ div.imgzone {
 }
 
 .adbox {
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem 1rem;
+  object-fit: contain;
+}
+.adbox img {
+  width:100%;
+  height: auto;
 }
 
 .link {
