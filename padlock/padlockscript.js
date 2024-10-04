@@ -1,6 +1,8 @@
 field = document.getElementById("field")
 random = Math.round(Math.random() * 899999 + 100000);
- 
+
+console.log(history)
+
 function buttonPress(number) {
     if (field.innerHTML.length != 6) {
         field.innerHTML += number // adds keypad num to field
@@ -31,11 +33,11 @@ document.addEventListener('keydown', (event) => {
         success += 1;
         console.log("Success");
 
-        // Check if the entire sequence has been completed
+        // check if the entire sequence has been completed
         if (success === keys.length) {
             console.log("Sequence completed!");
-            window.alert("The code is:"+random)
-            success = 0; // Reset for next round if desired
+            window.alert("The code is "+ random + ". Don't tell anyone!")
+            success = 0; // reset just in case
         }
     } else {
         console.log("Wrong key");

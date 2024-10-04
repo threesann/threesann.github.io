@@ -18,3 +18,13 @@ function themeToggle() {
     console.log("Theme switched")
 }
 
+
+// wip stuff
+document.addEventListener(`click`, e => {
+    const origin = e.target.closest(`a`); // var origin is the closest "a" link to the point of click
+    
+    if (origin) {
+      console.clear();
+      console.log(`You clicked ${origin.innerText}!`);
+    }
+  });
