@@ -11,16 +11,15 @@ function buttonPress(number) {
 
 function enter() {
     if (field.innerHTML == random) {
-        field.style.backgroundColor = "green";
-        setTimeout(() => {field.style.backgroundColor = "black";}, 1000);
+        field.style.color = "green";
+        field.style.textShadow = "0 0 10px green, 0 0 20px green, 0 0 30px";
         setTimeout(() => {window.location.replace("/jslearning/jslearning.html")}, 1000);
 
     }
     else {
         field.style.color = "red";
-        field.style.textShadow = "red";
-        setTimeout(() => {field.style.color = "white";}, 1000);
-        setTimeout(() => {field.innerHTML = "";}, 2000);
+        field.style.textShadow = "0 0 10px red, 0 0 20px red, 0 0 30px";
+        setTimeout(() => {field.style.color = "white"; field.style.textShadow = "0 0 10px #fff, 0 0 20px #fff, 0 0 30px"; field.innerHTML = "";}, 1000);
     }
 }
 
