@@ -32,12 +32,19 @@ span {
 
     display: flex;
     justify-content: center;
+    text-align: center;
+}
+
+@font-face {
+    font-family:LCDDisplay;
+    src: url(assets/font/Digital7.ttf)
 }
 
 .field {
     width: 80%;
     height: 100%;
-    border: 2px solid white;
+    font-family: LCDDisplay;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px;
 }
 
 .keypad {

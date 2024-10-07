@@ -17,9 +17,10 @@ function enter() {
 
     }
     else {
-        field.style.backgroundColor = "red";
-        setTimeout(() => {field.style.backgroundColor = "black";}, 1000);
-                field.innerHTML = ""
+        field.style.color = "red";
+        field.style.textShadow = "red";
+        setTimeout(() => {field.style.color = "white";}, 1000);
+        setTimeout(() => {field.innerHTML = "";}, 2000);
     }
 }
 
