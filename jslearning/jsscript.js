@@ -10,7 +10,7 @@ function bigger() {
 }
 
 function smaller() {
-    image.style.width = 100;
+    image.style.width = 50;
 }
 
 function showImg() {
@@ -21,13 +21,22 @@ function hideImg() {
     image.style.display = "none";
 }
 
+username = document.getElementById("usname")
+color = document.getElementById("usnamecolor")
 
 textEntry = document.getElementById("display")
 field = document.getElementById("field")
 
 function submit() {
-    field.innerHTML += "<br>"+textEntry.value
+    // const msg = document.createElement("div").className = "msgbox";
+    const para = document.createElement("span");
+    para.innerHTML = username.value + "<br />" + textEntry.value + "<br />";
+    document.getElementById("field").appendChild(para)
+
     textEntry.value = ""
+    // msg.appendChild(para)
+    // document.getElementById("field").appendChild(msg)
+    
 }
 
 

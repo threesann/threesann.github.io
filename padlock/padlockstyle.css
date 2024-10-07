@@ -62,8 +62,9 @@ span {
     margin: 5px;
 
     background: none;
-/*     border: 2px solid white; looks cooler w/o lol*/
+/*  border: 2px solid white; looks cooler w/o lol*/
     color:white;
+    font-weight:bolder;
     
 }
 

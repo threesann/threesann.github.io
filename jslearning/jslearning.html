@@ -13,11 +13,14 @@
     <button id="demo" onClick="changeText()">CHANGE MY TEXT!</button>
     <hr>
     <p><button onclick="smaller()">-</button> RESIZE <button onclick="bigger()">+</button></p>
-    <img id="photo" src="/kevinclicker/assets/kevster.png"><br>
+    <img id="photo" src="/kevinclicker/assets/kevster.png" style="width:100px;"><br>
     <button onclick="showImg()">SHOW</button> <button onclick="hideImg()">HIDE</button>
     <hr>
-    <p id="field">Type below to add something to the site!</p>
-    <input type="text" id="display"> <button onclick="submit()">></button>
+    <div id="field">
+        <p id="field">Type below to add something to the site!</p>
+    </div>
+    <input type="text" id="usname" placeholder="username"> <input type="color" id="usnamecolor"><br>
+    <input type="text" id="display" placeholder="message..."> <button onclick="submit()">></button>
     <hr>
     <button onclick="colorAlert()" style="background-color:red;  color:black; height:2rem;">CLICK ME FOR AN ALERT!</button>
 </body>
