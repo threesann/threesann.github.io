@@ -10,14 +10,19 @@ for (let i = 0; i < title.length; i++) {
 
 }
 
-
 function themeToggle() {
     document.querySelector("body").classList.toggle("dark")
-    let txt = document.getElementById("themetoggle").innerText;
-    document.getElementById("themetoggle").innerText = txt ==  "DARK MODE" ? "LIGHT MODE" : "DARK MODE" // toggle the text
+
+    let isDarkMode = document.querySelector("body").classList.contains("dark")
+    document.getElementById("themetoggle").innerText = isDarkMode ? "LIGHT MODE" : "DARK MODE" // toggle the text
     console.log("Theme switched")
+
+    localStorage.setItem("darkmodecheck",isDarkMode)
 }
 
+if (localStorage.getItem("darkmodecheck") === "true") { // checks for dark mode save on launch
+    themeToggle()
+}
 
 // wip stuff
 document.addEventListener(`click`, e => {
