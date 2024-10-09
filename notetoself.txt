@@ -1,0 +1,9 @@
+The custom 404 page doesn't work with a website hosted with GitHub Pages. I'll
+have to make the decision between leaving the page unused and continuing to host
+through GitHub Pages or transferring the files to a new repo/finding a way to
+convert the current repo and hosting through something like Vercel/the free domains
+you get from the student thing.
+
+also, SIGN UP FOR THE STUDENT THING!!!!!!!!!
+
+tl;dr: custom 404 page no worky github.io. change? maybe. unga bunga
