@@ -1,0 +1,64 @@
+body {
+    background-color: black;
+    color: white;
+
+    display: flex;
+    align-items: center;
+}
+
+.flexbox {
+    display: flex;
+    width: 60%;
+    height: fit-content;
+    margin: auto;
+
+    justify-content: left;
+}
+
+.imgzone {
+    width: fit-content;
+}
+
+.textzone {
+    margin: 0 0 0 2rem;
+    align-items: start;
+    font-family: "Fixedsys Excelsior";
+}
+
+.linkstyle {
+    background: none;
+    border: none;
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: underline;
+
+    padding: 0;
+    margin: 0;
+
+    cursor: pointer;
+
+}
+
+/* element adjustments */
+
+.textzone > h1  {
+    margin: 0;
+    font-size: 80px;
+    font-style: italic;
+}
+
+.textzone > p {
+    font-size: 18px;
+}
+
+.textzone > p > a { 
+    color: white;
+}
+
+/* font */
+
+@font-face {
+    font-family: "Fixedsys Excelsior";
+    src: url(assets/FSEX300.woff);
+}

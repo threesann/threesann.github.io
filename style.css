@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background-image: url(mainpage_assets/bg_morning.png);
+  background-image: url(assets/bg_morning.png);
   animation: background-move 40s linear infinite;
 }
 
@@ -121,6 +121,7 @@ div.imgzone {
 .link:hover {
   background-color:#0000EE;
   color: white;
+  cursor: pointer;
 }
 
 /* dark mode zone */
@@ -136,6 +137,6 @@ body.dark a, body.dark .link {
 }
 
 body.dark {
-  background-image: url(mainpage_assets/bg_nighttime.png);
+  background-image: url(assets/bg_nighttime.png);
   background-size: cover;
 }
