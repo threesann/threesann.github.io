@@ -11,8 +11,8 @@ function buttonPress(number) {
 
 function enter() {
     if (field.innerHTML == random) {
-        field.style.color = "green";
-        field.style.textShadow = "0 0 10px green, 0 0 20px green, 0 0 30px";
+        field.style.color = "lime";
+        field.style.textShadow = "0 0 10px lime, 0 0 20px lime, 0 0 30px";
         setTimeout(() => {window.location.replace("/pages/jslearning/jslearning.html")}, 1000);
 
     }

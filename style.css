@@ -61,10 +61,32 @@ div.imgzone {
   .content {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
     margin: 0;
-    background-color: rgb(255,255,255,0.8);
+    background-color: rgb(255,255,255,0.5);
   }
   body.dark .content {
     background-color: rgb(39, 37, 59,0.7)!important /* so janky */
+  }
+  .adbox > a > img {
+    width: 100%;
+  }
+  .box {
+    flex-direction: column;
+    justify-content: center !important;
+    background-color: inherit;
+    gap: 0 !important;
+  }
+  .box > div {
+    text-align: center;
+  }
+  .imgzone {
+    width: 80%;
+    margin: auto;
+  }
+  div.imgzone > img {
+    width: 50%;
+  }
+  .textzone > sub {
+    display: none;
   }
 }
 
@@ -136,7 +158,19 @@ body.dark a, body.dark .link {
   color: #33e7ff;
 }
 
+body.dark a:hover, body.dark .link:hover {
+  background-color: #0F0F17;
+}
+
 body.dark {
   background-image: url(assets/bg_nighttime.png);
   background-size: cover;
+}
+
+
+/* bonus stuff */
+
+#closedlink:hover {
+  cursor:default;
+  background-color: inherit;
 }
