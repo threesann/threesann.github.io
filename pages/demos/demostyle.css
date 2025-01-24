@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: inherit;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+}
+
+h1, p {
+    margin: 0;
+}
+
+a {
+    color:white;
+}
+
+a:hover, a:focus {
+    color: black;
+    background-color: white;
+}
+
+:focus {
+    outline: none;
+}
+
+@keyframes label-slide {
+    0% {right: 15%}
+    100% {right: 20%}
+}
+
+@keyframes fade-in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@keyframes fade-out {
+    0% {opacity: 1}
+    100% {opacity: 0}
+}
+
+.label {
+    animation-name: label-slide, fade-in;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}

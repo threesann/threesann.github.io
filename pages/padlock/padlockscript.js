@@ -46,7 +46,7 @@ function enter() {
         sounds[5].play();
         field.style.color = "lime";
         field.style.textShadow = "0 0 10px lime, 0 0 20px lime, 0 0 30px";
-        setTimeout(() => {window.location.replace("/pages/jslearning/jslearning.html")}, 3000);
+        setTimeout(() => {window.location.replace("/pages/demos/demos.html")}, 3000);
 
     }
     else {

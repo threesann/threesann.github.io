@@ -163,8 +163,8 @@ body.dark a:hover, body.dark .link:hover {
 }
 
 body.dark {
-  background-image: url(assets/bg_nighttime.png);
-  background-size: cover;
+  background-image: url(assets/bg_nighttime-large_starless.png);
+  background-size: auto;
 }
 
 
